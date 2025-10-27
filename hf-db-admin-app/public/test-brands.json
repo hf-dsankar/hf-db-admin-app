@@ -1,0 +1,62 @@
+[
+  {
+    "Brand": "Nike",
+    "ActiveBrand": true,
+    "Analytics": true,
+    "WFM_Name": "Nike Inc",
+    "Vendor_ID": 1001,
+    "Key_Account": true,
+    "Category_Review": false,
+    "Natural": false
+  },
+  {
+    "Brand": "Adidas",
+    "ActiveBrand": true,
+    "Analytics": true,
+    "WFM_Name": "Adidas AG",
+    "Vendor_ID": 1002,
+    "Key_Account": true,
+    "Category_Review": true,
+    "Natural": false
+  },
+  {
+    "Brand": "Patagonia",
+    "ActiveBrand": true,
+    "Analytics": false,
+    "WFM_Name": "Patagonia Inc",
+    "Vendor_ID": 1003,
+    "Key_Account": false,
+    "Category_Review": true,
+    "Natural": true
+  },
+  {
+    "Brand": "Under Armour",
+    "ActiveBrand": false,
+    "Analytics": true,
+    "WFM_Name": "Under Armour Inc",
+    "Vendor_ID": 1004,
+    "Key_Account": false,
+    "Category_Review": false,
+    "Natural": false
+  },
+  {
+    "Brand": "Puma",
+    "ActiveBrand": true,
+    "Analytics": true,
+    "WFM_Name": "Puma SE",
+    "Vendor_ID": 1005,
+    "Key_Account": true,
+    "Category_Review": true,
+    "Natural": false
+  },
+  {
+    "Brand": "New Balance",
+    "ActiveBrand": true,
+    "Analytics": false,
+    "WFM_Name": "New Balance Athletics",
+    "Vendor_ID": 1006,
+    "Key_Account": false,
+    "Category_Review": true,
+    "Natural": true
+  }
+]
