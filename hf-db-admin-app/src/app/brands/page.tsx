@@ -76,30 +76,47 @@ export default function Brands() {
     try {
       console.log("Submitting brands:", pendingRecords);
 
-      // Simulate API call delay
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Call Azure Functions endpoint
+      const response = await fetch(
+        "https://functions-db-admin-app-f9fseqbzdmakhxeb.centralus-01.azurewebsites.net/api/brands",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(pendingRecords),
+        }
+      );
 
-      // TODO: Replace with actual API call
-      // const response = await fetch('/api/brands', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(pendingRecords)
-      // });
+      if (!response.ok) {
+        console.log("Response status:", response.status);
+        console.log("Response headers:", response.headers);
 
-      // if (!response.ok) {
-      //   throw new Error('Failed to submit brands');
-      // }
+        let errorMessage = "Failed to submit brands";
+        try {
+          // Get text first, then try to parse as JSON
+          const textResponse = await response.text();
+          console.log("Response text:", textResponse);
 
-      // Simulate success/failure for demo
-      const isSuccess = Math.random() > 0.3; // 70% success rate for demo
-
-      if (isSuccess) {
-        showSuccess(
-          `Successfully submitted ${pendingRecords.length} brand record(s)!`
-        );
-      } else {
-        throw new Error("Simulated submission failure");
+          try {
+            const errorData = JSON.parse(textResponse);
+            errorMessage = errorData.message || errorData.error || errorMessage;
+          } catch (parseError) {
+            // Not JSON, use the text as error message
+            errorMessage =
+              textResponse || `HTTP ${response.status}: ${response.statusText}`;
+          }
+        } catch (textError) {
+          errorMessage = `HTTP ${response.status}: ${response.statusText}`;
+        }
+        throw new Error(errorMessage);
       }
+
+      const result = await response.json();
+      showSuccess(
+        result.message ||
+          `Successfully submitted ${pendingRecords.length} brand record(s)!`
+      );
     } catch (error) {
       console.error("Error submitting brands:", error);
       showError("Failed to submit brands. Please try again.");

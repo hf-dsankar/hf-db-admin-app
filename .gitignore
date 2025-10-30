@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/api/node_modules
 /.pnp
 .pnp.*
 .yarn/*
@@ -25,7 +26,7 @@
 *.pem
 /.vs/
 .vsidx
-.vscode/
+
 read.lock
 
 # debug
@@ -43,4 +44,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Azure Functions
+/api/bin
+/api/obj
+/api/appsettings.json
+/api/local.settings.json
+/api/.azure/
 

@@ -1,0 +1,16 @@
+{
+  "name": "functions-db-admin-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Azure Functions for HF DB Admin App",
+  "scripts": {
+    "start": "func start",
+    "build": "echo \"No build needed for JS\""
+  },
+  "dependencies": {
+    "mssql": "^10.0.0"
+  },
+  "engines": {
+    "node": ">=14 <18"
+  }
+}
